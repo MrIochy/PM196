@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Button } from 'react-native';
 
-export default function App() {
+    const Texto = () => {
+      return(
+      <Text>Hola Mundo desde React Native</Text>
+      )
+    }
+
+  export default function App() {
   return (
+
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Hola Mundo desde React Native</Text>
+      <Button title="Presioname"></Button>
+      // <Button/> otro formato para crear un botón
     </View>
   );
 }
