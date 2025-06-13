@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-    const Texto = () => {
+    const Texto = (props) => {
+      const {contenido} = props;
       return(
-      <Text>Hola Mundo desde React Native</Text>
+        <Text> {contenido}</Text>
       )
     }
 
@@ -11,10 +12,12 @@ import { Button, StyleSheet, Text, View, Button } from 'react-native';
   return (
 
     <View style={styles.container}>
-      <Text>Hola Mundo desde React Native</Text>
-      <Button title="Presioname"></Button>
-      // <Button/> otro formato para crear un botón
-    </View>
+      <statusBar style="auto" />
+      <Texto contenido="Hola"></Texto>
+      <Texto contenido="Mundo"></Texto>
+      <Texto contenido="React Native"></Texto>
+      <Button title = "Presioname"/>
+      </View>
   );
 }
 
