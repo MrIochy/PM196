@@ -1,28 +1,25 @@
+// importaciones
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { useState } from 'react';
+import React, {useState} from 'react';
 
 const Texto = (props) => {
-  const {children} = props;
-  const [contenido, setContenido] = useState(children);
-  const actualizaTexto = () => setContenido('Texto modificado');
-  
-  return(
-    <Text onPress={actualizaTexto}> {contenido}</Text>
-  )
+  const [contenido, setContenido] = useState('Hola Mundo');
+  const actualizaTexto = () => { setContenido('State Modificado'); };
+  return (
+    <Text style={[styles.text, props.style]} onPress={actualizaTexto}>{contenido}</Text>
+  );
 }
 
+//Main
 export default function App() {
-  const [titulo, setTitulo] = useState('Presioname');
-  const actualizaBtn = () => setTitulo("Botón presionado!");
-
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Texto>Hola</Texto>
-      <Texto>Mundo</Texto>
-      <Texto>React Native</Texto>
-      <Button onPress={actualizaBtn} title={titulo}/>
+      <StatusBar style='auto'/>
+      <Texto style={styles.verde}></Texto>
+      <Texto style={styles.amarillo}></Texto>
+      <Texto style={styles.azul}></Texto>
+      <Button title="Presioname"></Button>
     </View>
   );
 }
@@ -31,7 +28,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    flexDirection: 'column',
   },
+  text:{
+    color: 'grey',
+    fontSize: 27,
+  },
+  verde:{backgroundColor:'green',},
+  amarillo:{backgroundColor:'yellow',},
+  azul:{backgroundColor:'blue',},
 });
